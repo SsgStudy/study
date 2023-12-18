@@ -49,7 +49,7 @@ ex) git checkout Minji-Kim
 
 10) git push : 에러 메시지 없이 done 이라는 단어가 보이면 잘하고 있습니다.
 
-<span style = "color:yellow"> 무엇인가 에러가 나면 함부로 건들지말고 진욱오빠, 서윤언니에게 도움 요청 </span>
+### 주의) 무엇인가 에러가 나면 함부로 건들지말고 진욱오빠, 서윤언니에게 도움 요청
 
 Pull Request
 
