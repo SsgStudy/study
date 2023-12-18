@@ -26,6 +26,30 @@ https://covenant.tistory.com/235
 
 
 ## 📘 깃허브 사용법
+0) 터미널을 여세요.
+
+1) git clone "https://github.com/SsgStudy/study.git"
+
+2) git open . (파일을 열어서 옮겨도됨)
+
+3) ls (List의 줄임말) : 안에 파일이 제대로 들어갔는지 확인할 수 있음
+
+4) git checkout "본인의 브랜치명" : 브랜치를 main 에서 본인의 브랜치로 옮기는 명령어
+ex) git checkout Minji-Kim
+
+5) git status : 깃의 현재 상태를 확인하는 명령어, Untracked files(빨간색 글자)이 보이는지 확인- 보이면 잘하고 있습니다.
+
+6) git add . : .은 모든 파일을 의미, 단일 파일이면 add 뒤에 파일명만 적어야함
+
+7) git status : new file 파일(초록색 글자)가 보이면 잘하고 있습니다.
+
+8) git commit -m "커밋 메시지" (-m은 메시지를 의미, 본인이 수행한 작업을 간단히 작성)
+
+9) git log (노란색 글자 commit 이 나오면 잘된 것, 안보이면 확인 필요)
+
+10) git push : 에러 메시지 없이 done 이라는 단어가 보이면 잘하고 있습니다.
+
+<style = "color:ffd33d"> 무엇인가 에러가 나면 함부로 건들지말고 진욱오빠, 서윤언니에게 도움 요청 </style>
 
 Pull Request
 
