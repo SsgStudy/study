@@ -1,15 +1,13 @@
 package BookCart.vo;
 
 public class Person {
-
     private String id;
     private String password;
     private String name;
     private String phoneNumber;
     private String address;
 
-    public Person() {
-    }
+    public Person() {}
 
     public Person(String name, String phoneNumber) {
         this.name = name;
@@ -22,27 +20,15 @@ public class Person {
         this.address = address;
     }
 
+    public String getId() {
+        return id;
+    }
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    public String getPassword() { return password; }
+    public String getAddress() { return address; }
 }
