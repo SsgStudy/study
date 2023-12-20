@@ -1,41 +1,61 @@
 package BookCart.service;
 
+import BookCart.mapper.BookMapper;
 import BookCart.vo.Book;
-import BookCart.vo.User;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class BookService {
-    int index = 0;
-    String[] bookList = new String[100];
+    private BookMapper bookMapper = new BookMapper();
 
-    public void addBook(String bookId) {
-        System.out.println(bookId);
-        bookList[index] = bookId;
-        index++;
-    }
+    // 장바구니에 도서 추가
+    public void addBook(String userId) {
+        Scanner sc = new Scanner(System.in);
 
-    public void showBooKList() {
-        Book[] allBookList = bookList();
-        for (String i : bookList) {
-            for (Book j : allBookList) {
-                if (j.getBookId().equals(i)) {
-                    System.out.println(j);
-                }
-            }
+        System.out.println("장바구니에 추가할 도서의 ID를 입력하세요 :");
+        String bookId = sc.next();
+
+        if (!findBookById(bookId)) {
+            System.out.printf("%s는 도서 목록에 없습니다.\n", bookId);
+            return;
+        }
+
+        System.out.println("장바구니에 추가하시겠습니까? Y | N");
+        String confirm = sc.next();
+
+        if (confirm.equals("Y") || confirm.equals("y")) {
+            bookMapper.save(userId, bookId);
+            System.out.printf("%s 도서가 장바구니에 추가되었습니다.\n", bookId);
+        } else {
+            System.out.println("장바구니 추가를 취소하였습니다.");
         }
     }
 
-    public Book[] bookList() {
-        Book[] allBookList = new Book[3];
-        allBookList[0] = new Book("ISBN1234", "쉽게 배우는 JSP 웹 프로그래밍", 27000, "송미영", "단계별로 쇼핑몰을 구현하며 배우는 JSP 웹 프로그래밍", "IT전문서", "2018/10/08");
-        allBookList[1] = new Book("ISBN1235", "안드로이드 프로그래밍", 33000, "우재남", "실습 단계별 명쾌한 멘토링!", "IT전문서", "2022/01/22");
-        allBookList[2] = new Book("ISBN1236", "스크래치", 22000, "고광일", "컴퓨팅 사고력을 키우는 블록 코딩", "컴퓨터 입문", "2019/06/10");
-
-        return allBookList;
+    // bookId가 도서 리스트에 존재하는지 확인
+    public boolean findBookById(String bookId) {
+        return bookMapper.findByBookId(bookId) != null;
     }
 
+    // 모든 도서 조회
+    public List<Book> getAllBooks() {
+        bookMapper.findAll().stream().forEach(i-> System.out.println(i));
+        return bookMapper.findAll();
+    }
 
+    // User 장바구니 조회
+    public List<Book> getUserCart(String userId) {
+        List<String> bookIdList = bookMapper.findCartByUserId(userId);
 
+        if (bookIdList == null) {
+            System.out.println("장바구니가 비어있습니다.");
+            return new ArrayList<>();
+        }
 
+        List<Book> returnBookList = new ArrayList<>();
+        for (String bookId: bookIdList)
+            returnBookList.add(bookMapper.findByBookId(bookId));
 
-
+        return returnBookList;
+    }
 }

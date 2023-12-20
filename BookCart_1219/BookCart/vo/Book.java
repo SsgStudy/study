@@ -19,14 +19,9 @@ public class Book {
         this.bookPublishingDate = bookPublishingDate;
     }
 
-    public String getBookId() {
-        return bookId;
-    }
-
     @Override
     public String toString() {
         return (bookId + " | " + bookName + " | " + bookPrice + " | " + bookAuthor + " | "
                 + bookInfo + " | " + bookCategory + " | " + bookPublishingDate + " | ");
     }
-
 }
