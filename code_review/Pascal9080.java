@@ -1,4 +1,6 @@
-public class 배열2_7 {
+package com.example.string2;
+
+public class Pascal9080 {
 
     static int[][] dp = new int[6][6];
 
